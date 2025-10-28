@@ -1,6 +1,6 @@
 {
   "name": "medtrackweb",
-  "homepage": "https://nguyenthanhtrungnhat.github.io/MedTrackWeb/",
+  "homepage": "https://nguyenthanhtrungnhat.github.io/TestDeploy/",
   "deploy": "gh-pages -d dist",
   "private": true,
   "version": "0.0.0",
