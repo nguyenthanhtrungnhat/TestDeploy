@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import './../AllDesign.css';
 import { toast, ToastContainer } from "react-toastify";
@@ -143,9 +143,9 @@ export default function LoginScreen() {
                                 </button>
                                 <p className="small fw-bold mt-2 pt-1 mb-0">
                                     Don't have an account?{" "}
-                                    <a href="./register" className="link-danger">
+                                    <Link to="./register" className="link-danger">
                                         Register
-                                    </a>
+                                    </Link>
                                 </p>
                             </div>
                         </form>
@@ -177,53 +177,3 @@ export default function LoginScreen() {
        
     );
 }
-
- /* <div className="container-fluid">
-            <div className="row">
-                <div className="col-6 padding100 loginBg pt50">
-                    <div className="mb80">
-                        <img src={Logo} className="logo" alt="Logo" />
-                        <span className='whiteText'><b>MedTrack</b></span>
-                    </div>
-                    <h1 className='whiteText'>Hi there, ....</h1>
-                   
-                    <form onSubmit={handleLogin}>
-                        <div className="form-group">
-                            <label htmlFor="email" className='whiteText'>Email address</label>
-                            <input
-                                type="email"
-                                className="form-control inputLogin"
-                                id="email"
-                                placeholder='Type your email'
-                                value={email}
-                                onChange={(e) => setEmail(e.target.value)}
-                                required
-                            />
-                        </div>
-                        <div className="form-group">
-                            <label htmlFor="password" className='whiteText'>Password</label>
-                            <input
-                                type="password"
-                                className="form-control inputLogin"
-                                id="password"
-                                placeholder='Type your password'
-                                value={password}
-                                onChange={(e) => setPassword(e.target.value)}
-                                required
-                            />
-                        </div>
-                        <div className="d-flex justify-content-end">
-                            <a href="#" className='whiteText'>Forgot password?</a>
-                        </div>
-                        <div className="mx-auto w200">
-                            <button type="submit" className="btn btn-success w200">Login</button>
-                        </div>
-                    </form>
-                     <p className='whiteText'>Please sign in to start our services</p>
-                    {error && <p className="text-danger">{error}</p>}
-                </div>
-                <div className="col-6 p-0">
-                    <img src={LoginImg} className='w-100 loginPic' alt="Login" />
-                </div>
-            </div>
-        </div> */
