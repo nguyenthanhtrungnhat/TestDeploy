@@ -2,6 +2,7 @@ import banner1 from './images/banner1.webp';
 import banner2 from './images/banner2.webp';
 import banner3 from './images/banner3.webp';
 import prom1 from './images/Asset-1.webp';
+import { Link } from 'react-router-dom';
 
 export default function HomePage() {
     return (
@@ -129,7 +130,7 @@ export default function HomePage() {
                         <div className="col-lg-12">
                             <h2 className='headd1'>Already a member?</h2>
                             <p>Go to the member site to sign in or register for an account</p>
-                            <a href="/login">Member sign in</a>
+                            <Link to={"login"}>Member sign in</Link>
                         </div>
                     </div>
                 </div>
