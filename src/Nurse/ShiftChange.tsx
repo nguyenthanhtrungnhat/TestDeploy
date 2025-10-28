@@ -16,7 +16,7 @@ export default function ShiftChange() {
     const [schedules, setSchedules] = useState<Schedule[]>([]);
     useEffect(() => {
         axios
-            .get(`http://localhost:3000/api/schedules/${nurseID}`)
+            .get(`http://26.184.100.176:3000/api/schedules/${nurseID}`)
             .then(res => setSchedules(res.data))
             .catch(err => console.error("Error fetching schedules:", err));
     }, [nurseID]);

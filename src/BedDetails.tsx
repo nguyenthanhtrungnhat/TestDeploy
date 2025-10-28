@@ -12,7 +12,7 @@ export default function BedDetails() {
     const { patientID } = useParams();
     const storedInfo = sessionStorage.getItem("info");
     const info = storedInfo ? JSON.parse(storedInfo) : null;
-    const patientByIdUrl = `http://localhost:3000/patients/${patientID}`;
+    const patientByIdUrl = `http://26.184.100.176:3000/patients/${patientID}`;
 
     useEffect(() => {
         axios.get(patientByIdUrl)
