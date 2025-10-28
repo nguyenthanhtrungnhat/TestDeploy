@@ -42,16 +42,11 @@ const router = createBrowserRouter(
   [
     {
       path: "/",
+      element: <Layout />,
       children: [
-        {
-          path: "/",
-          element: <Layout />,
-          children: [
-            { index: true, element: <HomePage /> },
-            { path: "login", element: <LoginScreen /> },
-            { path: "register", element: <Register /> },
-          ],
-        },
+        { index: true, element: <HomePage /> },
+        { path: "login", element: <LoginScreen /> },
+        { path: "register", element: <Register /> }, // now this is at /register
       ],
     },
     {
@@ -69,7 +64,6 @@ const router = createBrowserRouter(
             { path: "shift-change", element: <ShiftChange /> },
             { path: "daily-checking", element: <DailyCheckingForm /> },
             { path: "schedule", element: <Schedule /> },
-            { path: "register", element: <Register /> },
           ],
         },
       ],
@@ -106,17 +100,15 @@ const router = createBrowserRouter(
       path: "/admin",
       element: <ProtectedRoute />,
       children: [
-        {
-          path: "/admin",
-          children: [{ index: true, element: <AdminScreen /> }],
-        },
+        { index: true, element: <AdminScreen /> },
       ],
     },
   ],
   {
-    basename: "/TestDeploy/", // 👈 add this line
+    basename: "/TestDeploy/",
   }
 );
+
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
