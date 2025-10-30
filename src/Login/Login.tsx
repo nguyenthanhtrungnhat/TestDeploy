@@ -143,7 +143,7 @@ export default function LoginScreen() {
                                 </button>
                                 <p className="small fw-bold mt-2 pt-1 mb-0">
                                     Don't have an account?{" "}
-                                    <Link to="./register" className="link-danger">
+                                    <Link to="register" className="link-danger">
                                         Register
                                     </Link>
                                 </p>

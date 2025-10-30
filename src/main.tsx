@@ -20,7 +20,7 @@ import PatientScreen from "./Patient/PatientScreen";
 import Schedule from "./Schedule";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
-import Register from "./Login/Register";
+import RegisterScreen from "./Login/Register";
 
 const Layout = () => (
   <>
@@ -46,7 +46,7 @@ const router = createBrowserRouter(
       children: [
         { index: true, element: <HomePage /> },
         { path: "login", element: <LoginScreen /> },
-        { path: "register", element: <Register /> }, // now this is at /register
+        { path: "register", element: <RegisterScreen /> }, // now this is at /register
       ],
     },
     {
