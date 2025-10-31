@@ -5,7 +5,7 @@ import {
   RouterProvider,
   Outlet,
   Navigate,
-  createHashRouter,
+  createBrowserRouter,
 } from "react-router-dom";
 import NurseScreen from "./Nurse/NurseScreen";
 import BedsInRoom from "./BedsInRoom";
@@ -39,13 +39,13 @@ const ProtectedRoute = () => {
 };
 
 // ✅ Add basename option for GitHub Pages
-const router = createHashRouter([
+const router = createBrowserRouter([
   {
-    path: "/",
+    path: "",
     element: <Layout />,
     children: [
       { index: true, element: <HomePage /> },
-      { path: "register", element: <RegisterScreen /> },
+      { path: "login/register", element: <RegisterScreen /> },
       { path: "login", element: <LoginScreen /> },
     ],
   },
