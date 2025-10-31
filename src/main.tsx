@@ -1,10 +1,11 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import {
-  createBrowserRouter,
+
   RouterProvider,
   Outlet,
   Navigate,
+  createHashRouter,
 } from "react-router-dom";
 import NurseScreen from "./Nurse/NurseScreen";
 import BedsInRoom from "./BedsInRoom";
@@ -38,76 +39,67 @@ const ProtectedRoute = () => {
 };
 
 // ✅ Add basename option for GitHub Pages
-const router = createBrowserRouter(
-  [
-    {
-      path: "/",
-      element: <Layout />,
-      children: [
-        { index: true, element: <HomePage /> },
-        { path: "login", element: <LoginScreen /> },
-        { path: "register", element: <RegisterScreen /> }, // now this is at /register
-      ],
-    },
-    {
-      path: "/home",
-      element: <ProtectedRoute />,
-      children: [
-        {
-          path: "/home",
-          element: <Layout />,
-          children: [
-            { index: true, element: <HomePage /> },
-            { path: "nurse-profile", element: <NurseScreen /> },
-            { path: "beds-in-room/:roomID", element: <BedsInRoom /> },
-            { path: "bed-details/:patientID", element: <BedDetails /> },
-            { path: "shift-change", element: <ShiftChange /> },
-            { path: "daily-checking", element: <DailyCheckingForm /> },
-            { path: "schedule", element: <Schedule /> },
-          ],
-        },
-      ],
-    },
-    {
-      path: "/doctor",
-      element: <ProtectedRoute />,
-      children: [
-        {
-          path: "/doctor",
-          element: <Layout />,
-          children: [
-            { index: true, element: <HomePage /> },
-            { path: "doctor-profile", element: <DoctorScreen /> },
-          ],
-        },
-      ],
-    },
-    {
-      path: "/patient",
-      element: <ProtectedRoute />,
-      children: [
-        {
-          path: "/patient",
-          element: <Layout />,
-          children: [
-            { index: true, element: <HomePage /> },
-            { path: "patient-profile", element: <PatientScreen /> },
-          ],
-        },
-      ],
-    },
-    {
-      path: "/admin",
-      element: <ProtectedRoute />,
-      children: [
-        { index: true, element: <AdminScreen /> },
-      ],
-    },
-  ],
+const router = createHashRouter([
   {
-    basename: "/TestDeploy/",
-  }
-);
+    path: "/",
+    element: <Layout />,
+    children: [
+      { index: true, element: <HomePage /> },
+      { path: "register", element: <RegisterScreen /> },
+      { path: "login", element: <LoginScreen /> },
+    ],
+  },
+  {
+    path: "home",
+    element: <ProtectedRoute />,
+    children: [
+      {
+        element: <Layout />,
+        children: [
+          { index: true, element: <HomePage /> },
+          { path: "nurse-profile", element: <NurseScreen /> },
+          { path: "beds-in-room/:roomID", element: <BedsInRoom /> },
+          { path: "bed-details/:patientID", element: <BedDetails /> },
+          { path: "shift-change", element: <ShiftChange /> },
+          { path: "daily-checking", element: <DailyCheckingForm /> },
+          { path: "schedule", element: <Schedule /> },
+        ],
+      },
+    ],
+  },
+  {
+    path: "doctor",
+    element: <ProtectedRoute />,
+    children: [
+      {
+        element: <Layout />,
+        children: [
+          { index: true, element: <HomePage /> },
+          { path: "doctor-profile", element: <DoctorScreen /> },
+        ],
+      },
+    ],
+  },
+  {
+    path: "patient",
+    element: <ProtectedRoute />,
+    children: [
+      {
+        element: <Layout />,
+        children: [
+          { index: true, element: <HomePage /> },
+          { path: "patient-profile", element: <PatientScreen /> },
+        ],
+      },
+    ],
+  },
+  {
+    path: "admin",
+    element: <ProtectedRoute />,
+    children: [{ index: true, element: <AdminScreen /> }],
+  },
+]);
+
 
 
 createRoot(document.getElementById("root")!).render(

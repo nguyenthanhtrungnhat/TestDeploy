@@ -108,7 +108,7 @@ export default function Header() {
                                     </Link>
                                 </li>
                                 <li className="nav-item">
-                                    <Link className="nav-link whiteText" to={"/login"}>
+                                    <Link className="nav-link whiteText" to="login">
                                         <h5 className="whiteText hasProfileIcon m-0">Login</h5>
                                     </Link>
                                 </li>
