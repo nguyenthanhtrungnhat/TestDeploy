@@ -41,7 +41,7 @@ const ProtectedRoute = () => {
 // ✅ Add basename option for GitHub Pages
 const router = createBrowserRouter([
   {
-    path: "",
+    path: "/",
     element: <Layout />,
     children: [
       { index: true, element: <HomePage /> },
